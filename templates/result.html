@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-center">Prediction Results</h2>
+
+        <div class="grid grid-cols-1 gap-4">
+            <div class="bg-gray-700 p-4 rounded-md">
+                <strong>Hospital:</strong> {{ hospital }}
+            </div>
+            <div class="bg-gray-700 p-4 rounded-md">
+                <strong>Doctor:</strong> {{ doctor }}
+            </div>
+            <div class="bg-gray-700 p-4 rounded-md">
+                <strong>Actual Billing Amount:</strong> INR {{ actual_amount if actual_amount else "Not found" }}
+            </div>
+            <div class="bg-gray-700 p-4 rounded-md">
+                <strong>Predicted Billing Amount:</strong> INR {{ predicted_amount }}
+            </div>
+            {% if difference %}
+            <div class="bg-gray-700 p-4 rounded-md">
+                <strong>Fraud Amount:</strong> INR {{ difference }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="text-center mt-6">
+            <a href="/" class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg" style="background-color: orange;">Upload Another PDF</a>
+        </div>
+    </div>
+</body>
+</html>
